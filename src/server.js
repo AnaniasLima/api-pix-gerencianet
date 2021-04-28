@@ -33,11 +33,29 @@ app.get('/', async (req, res) => {
 
   //  res.render('qrcode', {qrcodeImage: qrcodeResponse.data.imagemQrcode});
 
-//  const pixResponse = await reqGN.get('/v2/pix?inicio=2020-10-22T16:01:35Z&fim=2021-04-22T16:01:35Z&txid=ananias123012345678901234');
-  const pixResponse = await reqGN.get(`/v2/pix/E18236120202103060137s0923240ZGT`);
-  //pix/E18236120202103060137s0923240ZGT
+    const pixResponse = await reqGN.get(`/v2/pix?inicio=2020-10-22T16:01:00Z&fim=2021-04-22T16:01:00Z&txId=ananias123012345678901234`);
+
+    console.log(pixResponse);
+    
+    // const pixResponse = await reqGN.get(
+    //     '/v2/pix',
+    //     {
+    //         params: {
+    //             inicio: '2020-10-22T16:01:00Z',
+    //             fim: '2021-04-22T16:01:00Z',
+    //             txid: 'ananias123012345678901234'  
+    //         },
+    //         paramsSerializer: (params) => {
+    //             return qs.stringify(params, {arrayFormat: 'repeat'})
+    //         }
+    //     });
+
+
+    //const pixResponse = await reqGN.get(`/v2/pix/E18236120202103060137s0923240ZGT`);
+
+
    res.send(pixResponse.data);
-   //res.send('Legal');
+//    res.send('Legal');
 
 
 });
